@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+/*
+ * Tokens de color: paleta REAL extraída del CSS publicado de sonrisalud.net
+ * (variables --color-m95tekel, --color-m95tavrr, --color-m95tf2fe, etc.)
+ * Tipografía, radios y ausencia de sombras: extraídos del CSS publicado de
+ * mediciadentalcare.framer.website (Manrope, radios 28-32px, sin box-shadow).
+ */
+:root {
+  --background: #ffffff;
+  --surface: #ffffff;
+  --surface-muted: #f6f7ff;
+  --ink: #0e0e0e;
+  --ink-soft: #6b6d72;
+  --foreground: var(--ink);
+  --foreground-muted: var(--ink-soft);
+  --primary: #4041d1;
+  --primary-dark: #302fa8;
+  --primary-soft: #f6f7ff;
+  --line: #e5e7eb;
+  --radius-lg: 32px;
+  --radius-md: 20px;
+  --radius-sm: 14px;
+
+  /* Tokens de TiltCard: mapeados al ink y a la superficie que
+     el proyecto ya usa en todos lados, no valores nuevos. Bare
+     numbers (sin rgb()/#) porque el componente arma rgba() a
+     partir de ellos por frame. */
+  --tilt-shadow-rgb: 14, 14, 14; /* = var(--ink) / #0e0e0e */
+  --tilt-rim-rgb: 255, 255, 255; /* = var(--surface) */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-ink: var(--ink);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-soft: var(--primary-soft);
+  --color-line: var(--line);
+  --font-display: var(--font-manrope);
+  --font-sans: var(--font-manrope);
+  --radius-lg: var(--radius-lg);
+  --radius-md: var(--radius-md);
+  --radius-sm: var(--radius-sm);
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.font-display {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: white;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 26s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+/* ══ TiltCard ═══════════════════════════════════════════════
+   Almost nothing lives here: the rotation, both gradients and
+   the shadow are written per frame from the pointer position in
+   TiltCard.tsx, and this file only sets up the 3D context they
+   render into. */
+.tilt-frame {
+  /* the frame is what `perspective` lives on, not the card —
+     applied to the card itself the vanishing point would ride
+     along with its own rotation instead of staying fixed in
+     the room */
+  transform-style: preserve-3d;
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+  /* NO will-change: it would hold a composited layer for every
+     card on the page, permanently, to save one frame on a hover
+     that may never come. The browser promotes this on its own
+     the moment the transform actually starts moving. */
+
+  /* the card's own background/border/padding come from the
+     className each usage passes in — this component only adds
+     the depth, it doesn't style the surface */
+}
+
