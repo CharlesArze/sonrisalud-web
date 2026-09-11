@@ -6,10 +6,10 @@ function StatGroup() {
       {site.stats.map((stat) => (
         <div key={stat.label} className="flex items-center">
           <div className="flex flex-col items-center px-10 text-center sm:px-14">
-            <p className="font-display text-3xl font-extrabold tracking-[-0.02em] text-white sm:text-4xl">
+            <p className="font-display text-2xl font-extrabold tracking-[-0.02em] text-white sm:text-3xl">
               {stat.value}
             </p>
-            <p className="mt-2 font-display text-xs font-semibold uppercase tracking-wider text-white/80 sm:text-sm">
+            <p className="mt-1 font-display text-xs font-semibold uppercase tracking-wider text-white/80 sm:text-sm">
               {stat.label}
             </p>
           </div>
@@ -22,7 +22,7 @@ function StatGroup() {
 
 export function Stats() {
   return (
-    <section className="overflow-hidden bg-primary py-10 sm:py-12">
+    <section className="overflow-hidden bg-primary py-5 sm:py-6">
       <div className="animate-marquee flex w-max">
         <StatGroup />
         <StatGroup />
