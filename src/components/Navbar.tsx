@@ -34,7 +34,7 @@ export function Navbar() {
               width={447}
               height={447}
               priority
-              className="h-12 w-12 rounded-full object-cover sm:h-16 sm:w-16"
+              className="h-14 w-14 rounded-full object-cover sm:h-20 sm:w-20"
             />
           </Link>
 
@@ -96,7 +96,7 @@ export function Navbar() {
                 alt={site.name}
                 width={447}
                 height={447}
-                className="h-16 w-16 rounded-full object-cover"
+                className="h-20 w-20 rounded-full object-cover"
               />
             </Link>
             <nav className="flex flex-col gap-1">
