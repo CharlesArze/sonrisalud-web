@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { Phone, Mail, Clock } from "lucide-react";
 import { site, navLinks } from "@/content/site";
 import { FacebookIcon, InstagramIcon } from "./SocialIcons";
 
@@ -69,7 +69,7 @@ export function Footer() {
           <div className="space-y-4">
             <FooterContact icon={Phone} href={site.phoneHref} label={site.phone} />
             <FooterContact icon={Mail} href={`mailto:${site.email}`} label={site.email} />
-            <FooterContact icon={MapPin} label={site.hours} />
+            <FooterContact icon={Clock} label={site.hours} />
           </div>
         </div>
 
