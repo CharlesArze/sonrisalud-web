@@ -2,7 +2,6 @@
 
 import { site } from "@/content/site";
 import { WhatsAppIcon } from "./SocialIcons";
-import { glassShadow } from "@/lib/utils";
 
 export function WhatsAppFloat() {
   return (
@@ -12,8 +11,7 @@ export function WhatsAppFloat() {
       )}`}
       target="_blank"
       rel="noreferrer"
-      className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full border border-white/40 bg-primary/70 text-white backdrop-blur-xl backdrop-saturate-150 transition-transform hover:scale-105 hover:bg-primary/85"
-      style={{ boxShadow: glassShadow }}
+      className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/30 transition-transform hover:scale-105 hover:bg-primary-dark"
       aria-label="Escribir por WhatsApp"
     >
       <WhatsAppIcon size={28} />

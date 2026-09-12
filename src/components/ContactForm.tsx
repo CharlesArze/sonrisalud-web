@@ -18,9 +18,9 @@ export function ContactForm() {
         <Image
           src="/logo.jpg"
           alt={site.name}
-          width={447}
-          height={447}
-          className="h-16 w-16 rounded-full object-cover"
+          width={366}
+          height={223}
+          className="h-14 w-auto object-contain"
         />
         <h3 className="mt-4 font-display text-2xl font-medium text-foreground">
           ¡Gracias por escribirnos!

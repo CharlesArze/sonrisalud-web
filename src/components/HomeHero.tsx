@@ -4,21 +4,20 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { site } from "@/content/site";
-import { glassShadow } from "@/lib/utils";
 
 export function HomeHero() {
   return (
     <section className="relative bg-background">
       {/* Fondo: se extiende hacia arriba exactamente lo que mide el
-          header (65px en móvil, 85px en sm+) para que la imagen se
-          vea también detrás de la barra, de borde a borde. */}
-      <div className="absolute inset-x-0 -top-[65px] bottom-0 overflow-hidden sm:-top-[85px]">
+          header (56px en móvil, 72px en sm+) para que la imagen se
+          vea también alrededor de la píldora flotante. */}
+      <div className="absolute inset-x-0 -top-[56px] bottom-0 overflow-hidden sm:-top-[72px]">
         <Image
           src="/tooth.jpg"
           alt=""
           fill
           priority
-          className="object-cover object-center"
+          className="object-cover object-[80%_center] sm:object-center"
         />
       </div>
 
@@ -38,14 +37,13 @@ export function HomeHero() {
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <Link
               href="/appointment"
-              className="rounded-full bg-primary px-7 py-4 font-display text-[15px] font-semibold text-white transition-colors hover:bg-primary-dark"
+              className="rounded-full bg-white px-7 py-4 font-display text-[15px] font-semibold text-ink transition-colors hover:bg-white/85"
             >
               Reservar ahora
             </Link>
             <Link
               href="/services"
-              className="rounded-full border border-white/40 bg-white/25 px-7 py-4 font-display text-[15px] font-semibold text-white backdrop-blur-xl backdrop-saturate-150 transition-colors hover:bg-white/40"
-              style={{ boxShadow: glassShadow }}
+              className="rounded-full bg-primary px-7 py-4 font-display text-[15px] font-semibold text-white transition-colors hover:bg-primary-dark"
             >
               Descubrir servicios
             </Link>
