@@ -11,7 +11,12 @@ import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
-  const [glass, setGlass] = useState(false);
+  /* Arranca en "vidrio" (el estado por defecto, ver comentario abajo):
+     así la mayoría de páginas —que no tienen una sección data-nav="solid"
+     justo debajo del header— pintan la píldora correcta desde el primer
+     frame, en vez de mostrar un flash sólido/blanco hasta que el efecto
+     de scroll calcula el valor real. */
+  const [glass, setGlass] = useState(true);
   const pathname = usePathname();
   const headerRef = useRef<HTMLElement | null>(null);
 
