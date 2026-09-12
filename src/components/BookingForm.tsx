@@ -11,6 +11,16 @@ import { cn } from "@/lib/utils";
 const timeSlots = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00"];
 const steps = ["Servicio", "Fecha y hora", "Tus datos", "Confirmación"];
 
+/* Fecha local en formato YYYY-MM-DD para el min del <input type="date">.
+   toISOString() usa UTC: en horario de Perú (UTC-5), desde las 19:00
+   hasta medianoche local ya es "mañana" en UTC, así que calcularlo con
+   eso bloquearía elegir el día de hoy justo en esas horas. */
+const todayLocalISO = () => {
+  const d = new Date();
+  const offset = d.getTimezoneOffset() * 60000;
+  return new Date(d.getTime() - offset).toISOString().split("T")[0];
+};
+
 export function BookingForm() {
   const [step, setStep] = useState(0);
   const [serviceSlug, setServiceSlug] = useState<string>("");
@@ -150,7 +160,7 @@ export function BookingForm() {
                     id="date"
                     type="date"
                     value={date}
-                    min={new Date().toISOString().split("T")[0]}
+                    min={todayLocalISO()}
                     onChange={(e) => setDate(e.target.value)}
                     className="w-full rounded-[var(--radius-md)] border border-line bg-background px-4 py-3 text-sm text-foreground outline-none focus:border-primary"
                   />
