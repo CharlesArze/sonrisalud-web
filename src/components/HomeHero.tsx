@@ -8,22 +8,17 @@ import { glassShadow } from "@/lib/utils";
 
 export function HomeHero() {
   return (
-    <section className="relative overflow-hidden bg-background">
-      {/* Fondo: imagen de diente centrada en toda la sección */}
-      <div className="absolute inset-0">
+    <section className="relative bg-background">
+      {/* Fondo: se extiende hacia arriba exactamente lo que mide el
+          header (65px en móvil, 85px en sm+) para que la imagen se
+          vea también detrás de la barra, de borde a borde. */}
+      <div className="absolute inset-x-0 -top-[65px] bottom-0 overflow-hidden sm:-top-[85px]">
         <Image
           src="/tooth.jpg"
           alt=""
           fill
           priority
           className="object-cover object-center"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(90deg, var(--color-background) 0%, var(--color-background) 32%, rgba(255,255,255,0.55) 55%, rgba(255,255,255,0.15) 75%, rgba(255,255,255,0) 100%)",
-          }}
         />
       </div>
 
@@ -34,10 +29,10 @@ export function HomeHero() {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="flex max-w-xl flex-col items-start text-left"
         >
-          <h1 className="font-display text-[44px] font-semibold leading-[1.02] tracking-[-0.03em] text-ink sm:text-[64px] lg:text-[80px]">
+          <h1 className="font-display text-[44px] font-semibold leading-[1.02] tracking-[-0.03em] text-white sm:text-[64px] lg:text-[80px]">
             {site.tagline} es una realidad.
           </h1>
-          <p className="mt-7 max-w-md font-display text-base leading-relaxed text-foreground-muted sm:text-lg">
+          <p className="mt-7 max-w-md font-display text-sm leading-relaxed text-white/80 sm:text-base">
             {site.description}
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -49,7 +44,7 @@ export function HomeHero() {
             </Link>
             <Link
               href="/services"
-              className="rounded-full border border-white/40 bg-white/25 px-7 py-4 font-display text-[15px] font-semibold text-ink backdrop-blur-xl backdrop-saturate-150 transition-colors hover:bg-white/40"
+              className="rounded-full border border-white/40 bg-white/25 px-7 py-4 font-display text-[15px] font-semibold text-white backdrop-blur-xl backdrop-saturate-150 transition-colors hover:bg-white/40"
               style={{ boxShadow: glassShadow }}
             >
               Descubrir servicios

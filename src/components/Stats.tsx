@@ -5,13 +5,13 @@ function StatGroup() {
     <div className="flex shrink-0 items-center">
       {site.stats.map((stat) => (
         <div key={stat.label} className="flex items-center">
-          <div className="flex flex-col items-center px-10 text-center sm:px-14">
-            <p className="font-display text-2xl font-extrabold tracking-[-0.02em] text-white sm:text-3xl">
+          <div className="flex items-baseline gap-3 px-12 sm:px-16">
+            <span className="font-display text-sm font-extrabold tracking-[-0.02em] text-white sm:text-base">
               {stat.value}
-            </p>
-            <p className="mt-1 font-display text-xs font-semibold uppercase tracking-wider text-white/80 sm:text-sm">
+            </span>
+            <span className="font-display text-[10px] font-semibold uppercase tracking-wider text-white/80 sm:text-xs">
               {stat.label}
-            </p>
+            </span>
           </div>
           <span className="h-2 w-2 shrink-0 rounded-full bg-white/30" aria-hidden="true" />
         </div>
@@ -22,7 +22,7 @@ function StatGroup() {
 
 export function Stats() {
   return (
-    <section className="overflow-hidden bg-primary py-5 sm:py-6">
+    <section className="overflow-hidden bg-primary py-3">
       <div className="animate-marquee flex w-max">
         <StatGroup />
         <StatGroup />

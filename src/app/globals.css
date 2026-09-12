@@ -67,17 +67,6 @@ body {
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Los títulos (h1/h2/h3) llevan Instrument Serif; el resto de
-   usos de .font-display (botones, nav, badges — que no son
-   etiquetas de título) se quedan en Manrope. Una regla más
-   específica que la sola clase (tag + clase) gana sin tocar
-   ninguno de los componentes que ya usan .font-display. */
-h1.font-display,
-h2.font-display,
-h3.font-display {
-  font-family: var(--font-instrument-serif), ui-serif, Georgia, serif;
-}
-
 ::selection {
   background: var(--color-primary);
   color: white;
@@ -93,7 +82,7 @@ h3.font-display {
 }
 
 .animate-marquee {
-  animation: marquee 26s linear infinite;
+  animation: marquee 46s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
