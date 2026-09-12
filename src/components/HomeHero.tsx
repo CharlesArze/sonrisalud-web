@@ -26,7 +26,12 @@ export function HomeHero() {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      <div className="relative mx-auto flex min-h-[520px] max-w-7xl flex-col justify-center px-5 py-16 sm:min-h-[620px] sm:px-8 sm:py-20 lg:min-h-[720px]">
+      {/* En móvil, la altura es 100dvh menos los 56px que ocupa el header
+          flotante en el flujo del documento (mismo valor que el offset
+          de fondo de arriba), para que el borde inferior del hero caiga
+          justo en el borde de la pantalla al abrir — la franja de stats
+          queda apenas rozando, oculta hasta el primer scroll. */}
+      <div className="relative mx-auto flex min-h-[calc(100dvh-56px)] max-w-7xl flex-col justify-center px-5 py-16 sm:min-h-[620px] sm:px-8 sm:py-20 lg:min-h-[720px]">
         <motion.div
           initial={{ opacity: 0.001, x: -60 }}
           animate={{ opacity: 1, x: 0 }}
