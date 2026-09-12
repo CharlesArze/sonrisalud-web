@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { services } from "@/content/services";
 import { Reveal } from "@/components/Reveal";
-import { Placeholder } from "@/components/Placeholder";
 import { ServiceCard } from "@/components/ServiceCard";
 import { CTABanner } from "@/components/CTABanner";
 
@@ -70,7 +70,15 @@ export default async function ServiceDetailPage({
               </Link>
             </Reveal>
             <Reveal delay={0.1}>
-              <Placeholder className="aspect-[4/3] w-full" />
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[var(--radius-lg)] bg-surface-muted">
+                <Image
+                  src={service.image}
+                  alt={service.name}
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-contain p-10"
+                />
+              </div>
             </Reveal>
           </div>
         </div>
