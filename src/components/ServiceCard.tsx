@@ -10,7 +10,7 @@ export function ServiceCard({ service, delay = 0 }: { service: Service; delay?: 
       <Link href={`/services/${service.slug}`} className="group block h-full">
         <TiltCard className="flex flex-col items-center border border-line bg-surface p-8 text-center transition-colors group-hover:border-primary/40">
           <div className="relative h-28 w-28 shrink-0">
-            <Image src={service.image} alt="" fill sizes="112px" className="object-contain" />
+            <Image src={service.image} alt={service.name} fill sizes="112px" className="object-contain" />
           </div>
           <div className="mt-auto mb-3 pt-5">
             <h3 className="font-display text-xl font-medium text-foreground">{service.name}</h3>
