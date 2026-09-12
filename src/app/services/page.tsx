@@ -6,8 +6,7 @@ import { services } from "@/content/services";
 
 export const metadata: Metadata = {
   title: "Servicios | Sonrisalud",
-  description:
-    "Ortodoncia, blanqueamiento dental, implantes, cuidado preventivo, odontopediatría y estética dental en Sonrisalud.",
+  description: "Ortodoncia, estética dental e implantes dentales en Sonrisalud.",
 };
 
 export default function ServicesPage() {
@@ -16,7 +15,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Servicios"
         title="Cuidado dental para toda la familia"
-        description="Seis especialidades pensadas para acompañarte en cada etapa: desde revisiones preventivas hasta tratamientos estéticos avanzados."
+        description="Tres especialidades pensadas para acompañarte en cada etapa: ortodoncia, estética dental e implantes."
       />
 
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">

@@ -7,15 +7,18 @@ import { FacebookIcon, InstagramIcon } from "./SocialIcons";
 export function Footer() {
   return (
     <footer className="px-3 pb-3 sm:px-5 sm:pb-5">
-      <div className="mx-auto max-w-7xl rounded-[var(--radius-lg)] bg-ink px-6 py-14 text-white sm:px-12 sm:py-20">
+      <div
+        data-nav="solid"
+        className="mx-auto max-w-7xl rounded-[var(--radius-lg)] bg-ink px-6 py-14 text-white sm:px-12 sm:py-20"
+      >
         <div className="flex flex-col items-center gap-10 border-b border-white/10 pb-14 lg:flex-row lg:items-start lg:justify-between">
-          <Link href="/" className="flex items-center rounded-2xl bg-white px-4 py-3" aria-label={site.name}>
+          <Link href="/" className="flex items-center" aria-label={site.name}>
             <Image
-              src="/logo.jpg"
+              src="/logo-white.png"
               alt={site.name}
               width={366}
               height={223}
-              className="h-12 w-auto object-contain"
+              className="h-32 w-auto object-contain sm:h-40"
             />
           </Link>
 

@@ -63,10 +63,10 @@ export default async function ServiceDetailPage({
               </p>
               <Link
                 href="/appointment"
-                className="group mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-dark"
+                className="group mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.05] hover:bg-primary-dark"
               >
                 Reservar ahora
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1.5" />
               </Link>
             </Reveal>
             <Reveal delay={0.1}>

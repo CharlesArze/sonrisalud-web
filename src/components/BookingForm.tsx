@@ -38,7 +38,7 @@ export function BookingForm() {
     return (
       <div className="flex flex-col items-center rounded-[var(--radius-lg)] border border-line bg-surface p-10 text-center">
         <Image
-          src="/logo.jpg"
+          src="/logo.png"
           alt={site.name}
           width={366}
           height={223}

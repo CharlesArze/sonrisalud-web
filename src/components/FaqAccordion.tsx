@@ -26,8 +26,8 @@ export function FaqAccordion() {
               </span>
               <motion.span
                 animate={{ rotate: isOpen ? 45 : 0 }}
-                transition={{ duration: 0.2 }}
-                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-soft text-primary"
+                transition={{ duration: 0.3 }}
+                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-white"
               >
                 <Plus size={16} />
               </motion.span>
@@ -38,7 +38,7 @@ export function FaqAccordion() {
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                  transition={{ duration: 0.35, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
                   <p className="px-6 pb-5 text-sm leading-relaxed text-foreground-muted">

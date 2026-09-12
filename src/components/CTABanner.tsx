@@ -13,7 +13,10 @@ export function CTABanner({
   return (
     <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24">
       <Reveal>
-        <div className="relative overflow-hidden rounded-[var(--radius-lg)] bg-primary px-8 py-14 text-center text-white sm:px-16 sm:py-20">
+        <div
+          data-nav="solid"
+          className="relative overflow-hidden rounded-[var(--radius-lg)] bg-primary px-8 py-14 text-center text-white sm:px-16 sm:py-20"
+        >
           <div
             className="absolute inset-0 opacity-10"
             style={{
@@ -30,16 +33,16 @@ export function CTABanner({
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/appointment"
-                className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-primary-dark transition-transform hover:scale-[1.03]"
+                className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-primary-dark transition-transform duration-300 hover:scale-[1.05]"
               >
                 Reservar ahora
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1.5" />
               </Link>
               <a
-                href={site.whatsappHref}
+                href={`${site.whatsappHref}?text=${encodeURIComponent(site.whatsappDefaultMessage)}`}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                className="inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.05] hover:bg-white/10"
               >
                 Escribir por WhatsApp
               </a>

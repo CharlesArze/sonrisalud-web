@@ -43,8 +43,13 @@ const DEPTH = 900;
    reading as a zoom. */
 const SINK = 10;
 
-const TILT = 8;
-const SHADE = 45;
+/* Antes en 8, luego 5.6: el "tambaleo" (la inclinación 3D) seguía
+   sintiéndose marcado al pasar el mouse. Bajado otro 30% más. */
+const TILT = 3.92;
+/* Antes en 45, luego 18: el sombreado que sigue al puntero seguía
+   sintiéndose marcado. Bajado otro 30% más, para que quede como un
+   matiz apenas perceptible sin perder la sensación de "presión". */
+const SHADE = 12.6;
 
 /* One spring for the pointer position: stiffness and decay are
    derived from a single 0..100 "tune" via damping ratio, so the

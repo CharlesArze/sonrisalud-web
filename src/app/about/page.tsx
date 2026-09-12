@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { Stats } from "@/components/Stats";
 import { CTABanner } from "@/components/CTABanner";
 import { site } from "@/content/site";
-import { Placeholder } from "@/components/Placeholder";
 
 export const metadata: Metadata = {
   title: "Nosotros | Sonrisalud",
@@ -24,7 +24,14 @@ export default function AboutPage() {
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
-            <Placeholder className="aspect-[4/3] w-full" />
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[var(--radius-lg)] bg-surface-muted">
+              <Image
+                src="/about-kid-checkup.jpg"
+                alt="Niño chocando la mano con su doctora tras una consulta dental"
+                fill
+                className="object-cover"
+              />
+            </div>
           </Reveal>
           <Reveal delay={0.1}>
             <SectionHeading

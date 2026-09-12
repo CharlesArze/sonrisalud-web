@@ -9,14 +9,14 @@
 :root {
   --background: #ffffff;
   --surface: #ffffff;
-  --surface-muted: #f6f7ff;
+  --surface-muted: #f8f8f8;
   --ink: #0e0e0e;
   --ink-soft: #6b6d72;
   --foreground: var(--ink);
   --foreground-muted: var(--ink-soft);
-  --primary: #4041d1;
-  --primary-dark: #302fa8;
-  --primary-soft: #f6f7ff;
+  --primary: #0268ff;
+  --primary-dark: #0251c7;
+  --primary-soft: #eaf3ff;
   --line: #e5e7eb;
   --radius-lg: 32px;
   --radius-md: 20px;
@@ -42,7 +42,7 @@
   --color-primary-soft: var(--primary-soft);
   --color-line: var(--line);
   --font-display: var(--font-manrope);
-  --font-sans: var(--font-manrope);
+  --font-sans: var(--font-geist);
   --radius-lg: var(--radius-lg);
   --radius-md: var(--radius-md);
   --radius-sm: var(--radius-sm);
@@ -59,12 +59,18 @@ html {
 body {
   background: var(--color-background);
   color: var(--color-foreground);
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  /* Directo a --font-geist (no a --font-sans): --font-sans/--font-display
+     viven en :root, pero --font-manrope/--font-geist solo existen desde
+     <body> hacia abajo (next/font los aplica ahí como clase) — un var()
+     declarado en :root que apunta a una variable que no existe todavía
+     en :root se vuelve inválido ahí mismo, y ese valor inválido es lo
+     que se hereda, así que --font-sans nunca llegaba a resolver nada. */
+  font-family: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   letter-spacing: -0.01em;
 }
 
 .font-display {
-  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 }
 
 ::selection {

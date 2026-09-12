@@ -6,8 +6,7 @@ export type Faq = {
 export const faqs: Faq[] = [
   {
     question: "¿Qué servicios dentales ofrecen?",
-    answer:
-      "Ofrecemos ortodoncia, blanqueamiento dental, implantes, cuidado preventivo, odontopediatría y estética dental.",
+    answer: "Ofrecemos ortodoncia, estética dental e implantes dentales.",
   },
   {
     question: "¿Cada cuánto debo visitar al dentista?",
