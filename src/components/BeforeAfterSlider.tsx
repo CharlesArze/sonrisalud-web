@@ -54,14 +54,26 @@ export function BeforeAfterSlider({
       className="relative aspect-[4/3] w-full max-w-[571px] touch-none select-none overflow-hidden rounded-[var(--radius-lg)] bg-surface-muted"
     >
       {/* Después: imagen de fondo completa */}
-      <Image src={after} alt={afterAlt} fill className="pointer-events-none object-cover" />
+      <Image
+        src={after}
+        alt={afterAlt}
+        fill
+        sizes="(min-width: 571px) 571px, 100vw"
+        className="pointer-events-none object-cover"
+      />
 
       {/* Antes: recortada por la derecha según la posición del deslizador */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
       >
-        <Image src={before} alt={beforeAlt} fill className="object-cover" />
+        <Image
+          src={before}
+          alt={beforeAlt}
+          fill
+          sizes="(min-width: 571px) 571px, 100vw"
+          className="object-cover"
+        />
       </div>
 
       <span className="pointer-events-none absolute left-4 top-4 rounded-full bg-ink/70 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">

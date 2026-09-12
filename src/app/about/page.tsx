@@ -29,6 +29,7 @@ export default function AboutPage() {
                 src="/about-kid-checkup.jpg"
                 alt="Niño chocando la mano con su doctora tras una consulta dental"
                 fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover"
               />
             </div>

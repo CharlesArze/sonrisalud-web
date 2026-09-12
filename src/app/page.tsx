@@ -43,6 +43,7 @@ export default function Home() {
                 src="/about-collage.jpg"
                 alt="Collage de la clínica Sonrisalud: atención a paciente, modelo de ortodoncia y consultorio"
                 fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover"
               />
             </div>
@@ -132,6 +133,7 @@ export default function Home() {
                 src="/whitening-teeth.jpg"
                 alt="Tres dientes en tono azul representando las opciones de blanqueamiento dental"
                 fill
+                sizes="(min-width: 1024px) 35vw, 70vw"
                 className="object-cover"
               />
             </div>
@@ -223,6 +225,7 @@ export default function Home() {
                 src="/dental-mold.png"
                 alt="Molde dental en 3D en tono azul"
                 fill
+                sizes="(min-width: 1024px) 314px, 224px"
                 className="object-cover"
               />
             </div>
