@@ -97,6 +97,15 @@ body {
   }
 }
 
+/* TestimonialSlider: pausa el marquee mientras el cursor esté sobre
+   cualquier tarjeta. Regla sin @layer a propósito: la utilidad
+   group-hover de Tailwind vive en @layer utilities, y una regla sin
+   capa le gana siempre a una con capa sin importar el orden, así que
+   ahí nunca llegaba a pausar la animación. */
+.testimonial-marquee:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
 /* ══ TiltCard ═══════════════════════════════════════════════
    Almost nothing lives here: the rotation, both gradients and
    the shadow are written per frame from the pointer position in

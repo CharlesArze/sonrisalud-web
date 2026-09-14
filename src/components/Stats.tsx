@@ -1,4 +1,8 @@
+"use client";
+
+import { useRef } from "react";
 import { site } from "@/content/site";
+import { useMarqueeSpeed } from "@/lib/useMarqueeSpeed";
 
 function StatGroup() {
   return (
@@ -20,9 +24,12 @@ function StatGroup() {
 }
 
 export function Stats() {
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  useMarqueeSpeed(trackRef);
+
   return (
     <section data-nav="solid" className="overflow-hidden bg-primary py-3">
-      <div className="animate-marquee flex w-max">
+      <div ref={trackRef} className="animate-marquee flex w-max">
         <StatGroup />
         <StatGroup />
         <StatGroup />
