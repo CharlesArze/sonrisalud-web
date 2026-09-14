@@ -5,7 +5,7 @@ import { useEffect, type RefObject } from "react";
 // px/s compartido por toda cinta tipo "marquee" (Stats, testimonios):
 // una sola cinta de referencia, cualquier otra que use este mismo
 // número se ve moviéndose a la misma velocidad sin importar su ancho.
-export const MARQUEE_SPEED = 30;
+export const MARQUEE_SPEED = 60;
 
 /**
  * Fija animation-duration para que un track marquee (contenido

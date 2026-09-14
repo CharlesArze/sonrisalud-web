@@ -24,15 +24,20 @@ export function TestimonialSlider() {
     // espacio para desvanecerse del todo en vez de cortarse de golpe.
     // .testimonial-marquee:hover (ver globals.css) pausa el track al
     // pasar el cursor por cualquier tarjeta; al retirarlo, sigue solo.
-    <div className="testimonial-marquee -my-14 overflow-hidden">
+    // w-screen + ml-[50%] -translate-x-1/2: "full-bleed" — saca la
+    // cinta del max-w-7xl/px del <section> que la envuelve en page.tsx
+    // para que ocupe el ancho completo de la pantalla, de borde a borde.
+    <div className="testimonial-marquee -my-14 ml-[50%] w-screen -translate-x-1/2 overflow-hidden">
       <div
         ref={trackRef}
         className="animate-marquee flex w-max py-14"
         style={{
+          // % y no px fijos: al ser ahora de borde a borde, un degradado
+          // en px se volvería imperceptible en pantallas anchas.
           maskImage:
-            "linear-gradient(to right, transparent 0, black 48px, black calc(100% - 48px), transparent 100%)",
+            "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
           WebkitMaskImage:
-            "linear-gradient(to right, transparent 0, black 48px, black calc(100% - 48px), transparent 100%)",
+            "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
         }}
       >
         {cards.map((t, i) => (
