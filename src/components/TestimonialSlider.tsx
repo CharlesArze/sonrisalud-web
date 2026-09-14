@@ -3,11 +3,11 @@
 import { useRef } from "react";
 import { Star } from "lucide-react";
 import { testimonials } from "@/content/testimonials";
-import { useMarqueeSpeed } from "@/lib/useMarqueeSpeed";
+import { useSmoothMarquee } from "@/lib/useMarqueeSpeed";
 
 export function TestimonialSlider() {
   const trackRef = useRef<HTMLDivElement | null>(null);
-  useMarqueeSpeed(trackRef);
+  const hoverHandlers = useSmoothMarquee(trackRef);
 
   // Duplicado para el loop infinito (mismo truco que Stats): la
   // animación traslada -50%, que debe caer justo donde empieza la
@@ -22,27 +22,29 @@ export function TestimonialSlider() {
   return (
     // El -my-14/py-14 le da a la sombra de las tarjetas suficiente
     // espacio para desvanecerse del todo en vez de cortarse de golpe.
-    // .testimonial-marquee:hover (ver globals.css) pausa el track al
-    // pasar el cursor por cualquier tarjeta; al retirarlo, sigue solo.
     // w-screen + ml-[50%] -translate-x-1/2: "full-bleed" — saca la
     // cinta del max-w-7xl/px del <section> que la envuelve en page.tsx
     // para que ocupe el ancho completo de la pantalla, de borde a borde.
-    <div className="testimonial-marquee -my-14 ml-[50%] w-screen -translate-x-1/2 overflow-hidden">
-      <div
-        ref={trackRef}
-        className="animate-marquee flex w-max py-14"
-        style={{
-          // % y no px fijos: al ser ahora de borde a borde, un degradado
-          // en px se volvería imperceptible en pantallas anchas.
-          maskImage:
-            "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
-          WebkitMaskImage:
-            "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
-        }}
-      >
+    <div className="relative -my-14 ml-[50%] w-screen -translate-x-1/2 overflow-hidden">
+      {/* Desvanecido en los bordes: dos overlays fijos (no una máscara
+          sobre el track) que van del blanco de fondo de la página,
+          sólido, a transparente — las tarjetas parecen desvanecerse en
+          la página en vez de cortarse. pointer-events-none para nunca
+          interceptar el hover de una tarjeta.
+          Tienen que ir en este contenedor fijo y no en el track: el
+          track se traslada con la animación, así que una máscara
+          puesta ahí viaja con él y el desvanecido deja de coincidir con
+          el borde real de la pantalla la mayor parte del tiempo. */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-white to-transparent md:w-32" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-white to-transparent md:w-32" />
+      <div ref={trackRef} className="flex w-max py-14">
         {cards.map((t, i) => (
           <div
             key={`${t.name}-${i}`}
+            // Los handlers de hover van en cada tarjeta, no en el
+            // contenedor: así el marquee solo frena exactamente sobre
+            // una tarjeta, no en los márgenes/huecos entre ellas.
+            {...hoverHandlers}
             // w-[85vw], no w-[85%]: el contenedor es w-max (ancho
             // intrínseco) para el truco del marquee, y un % ahí crea
             // una referencia circular (ancho en % de un contenedor
